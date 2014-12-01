@@ -20,7 +20,7 @@ public class NamePositionScoreGameGenerator extends JFrame {
 	public NamePositionScoreGameGenerator(){
 		setTitle("Paul Kennedy Project");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(275, 400);
+		setSize(265, 400);
 		setLocation(250, 150);
 		setLayout(new FlowLayout());
 				
@@ -103,11 +103,11 @@ public class NamePositionScoreGameGenerator extends JFrame {
 				
 		 if(f.getActionCommand().equals("View Your Players")){
 		 playGameButton.setVisible(false);
-		 background.setVisible(false);
+		 background.setVisible(true);
 		 
 			
 	 
-		 String[] firstName = {"Luke", "Sam", "Naz", "JJ", "Ross", "James", "Ciaran", "Gary", "Darryl", "Ed", "Matt", "Dan", "Paul", "Niall", 
+		 String[] firstName = {"Luke", "Sam", "Nazmul", "JohnJoe", "Ross", "James", "Ciaran", "Gary", "Darryl", "Edward", "Matt", "Daniel", "Paul", "Niall", 
             					"Alex", "Kyle", "John", "Alan"};
          String[] secondName = {"Bluett", "Dowling", "Alam", "Landers", "Killian", "Nagel", "McGarr", "Griffen", "Naughton", "Moynihan", "Sin", "Lyne", 
             					"O'Sullivan", "Kennedy", "Stack", "Zoric", "Maloudi", "Mulvihal", "Rigney", "Moriarty"};
@@ -115,17 +115,48 @@ public class NamePositionScoreGameGenerator extends JFrame {
          int random = (int) (Math.random()*firstName.length);
          int random2 = (int) (Math.random()*secondName.length);
          
-         String[] names = new String[11]; 
-         //int[] rate = new int[11];
+         String[] names = new String[12]; 
+         int[] rate = new int[12];
          
          
-         for(int i = 0 ; i < 11; i++){
-         	names[i] = firstName[(int)(Math.random()*firstName.length)]+" "+secondName[(int)(Math.random()*secondName.length)];
-         	//rate[i] = (int)(Math.random()*10); 
+         for(int i = 0; i <= 11; i++){
+         	names[i] = firstName[(int)(Math.random() * firstName.length)] + " " + secondName[(int)(Math.random() * secondName.length)];
+         	rate[i] = (int)(Math.random() * 10); 
          } //End of For Loop
          
+         String teamPlayers = "\n<html><H2>Defenders</H2></html>" + "\n" + names[2] + "\n" + names[3] + "\n" + names[4] + "\n" + names[5] + 
+         						"\n<html><H2>Midfielders</H2></html>" + "\n" + names[6] + "\n" + names[7] + "\n" + names[8] + "\n" + names[9] + 
+         							"\n<html><H2>Strikers</H2></html>" + "\n" + names[10] + "\n" + names[11];
+         							
+         String rating = "\n<html><H2>Defenders</H2></html>" + "\n" + names[2] + "   " + rate[2] + "\n" + names[3] + "   " + rate[3] + "\n" + 
+         						names[4] + "   " + rate[4] + "\n" + names[5] + "   " + rate[5] + "\n<html><H2>Midfielders</H2></html>" + "\n" + 
+         							names[6] + "   " + rate[6] + "\n" + names[7] + "   " + rate[7] + "\n" + names[8] + "   " + rate[8] + "\n" + 
+         						 		names[9] + "   " + rate[9] + "\n<html><H2>Strikers</H2></html>" + "\n" + names[10] + "   " + rate[10] + 
+         						 		"\n" + names[11] + "   " + rate[11];
          
-	     JLabel goalkeeper = new JLabel("<html><h2>Goalkeeper: </h2></html>");
+        /* https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html */
+        Object[] options = {"Play Game", "Quit"};
+		int answer = JOptionPane.showOptionDialog(null, teamPlayers, "Game", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+    	    	  
+        if (answer == JOptionPane.YES_OPTION){
+      	//JOptionPane.showMessageDialog(null, rating, "Game", JOptionPane.PLAIN_MESSAGE);
+      	
+      	Object[] optionsagain = {"Continue", "Quit"};
+      	int playOn = JOptionPane.showOptionDialog(null, rating, "Game", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, optionsagain, optionsagain[0]);
+      		if (playOn == JOptionPane.YES_OPTION){
+      		}
+      		
+      		else if (playOn == JOptionPane.NO_OPTION){
+      			System.exit(0);
+      		}
+      	
+    	}
+    	 
+    	else if (answer == JOptionPane.NO_OPTION){
+      	System.exit(0);
+    	}
+         
+	     /* JLabel goalkeeper = new JLabel("<html><h2>Goalkeeper: </h2></html>");
          JTextArea goalkeeper1 = new JTextArea();
          goalkeeper1.setEditable(false);
          add(goalkeeper);
@@ -142,7 +173,7 @@ public class NamePositionScoreGameGenerator extends JFrame {
          defender1.setEditable(false);
          add(defender);
          add(defender1);                
-         goalkeeper1.setEditable(false);
+         defender1.setEditable(false);
          for(int i = 1; i<5;i++){
          defender1.append(names[i]+"\n");
          defender.setVisible(true);
@@ -161,7 +192,7 @@ public class NamePositionScoreGameGenerator extends JFrame {
          midfielder1.setVisible(true);
          }
          
-         /* JLabel forwards = new JLabel("<html><h2>Forwards: </h2></html>");
+         JLabel forwards = new JLabel("<html><h2>Forwards: </h2></html>");
          JTextArea forwards1 = new JTextArea();
          forwards1.setEditable(false);
          add(forwards);
@@ -173,16 +204,10 @@ public class NamePositionScoreGameGenerator extends JFrame {
          forwards1.setVisible(true);
          } */
          
-        JButton play10games = new JButton("Play");
-        add(play10games);
-        play10games.setVisible(true);
-        
-        ButtonHandler gamehandler = new ButtonHandler();
-        play10games.addActionListener(gamehandler);
-		
-				
-		}//End of ActionCommand
+        }//End of ActionCommand
 	}//End of ActionPerformed
 	}//End of ButtonHandler - ActionListener
+	
+	
 	
 }//End of main
