@@ -32,50 +32,53 @@
          	rate[i] = (int)(Math.random()*10); 
          } //End of For Loop
          
-         JTextArea goalkeeper = new JTextArea("Goalkeeper: ");
-         goalkeeper.setEditable(false);
-         goalkeeper.append("\n");
-         //JLabel goalkeeper = new JLabel("Goalkeeper:");
-         add(goalkeeper);                
-         goalkeeper.setEditable(false);
-         for(int i = 0; i<1;i++){
-         goalkeeper.append(names[i]+"\t\t"+rate[i]+"\n");
-         goalkeeper.setVisible(true);
+         /* JLabel goalkeeper = new JLabel("<html><h2>Goalkeeper: </h2></html>");
+         JTextArea goalkeeper1 = new JTextArea();
+         goalkeeper1.setEditable(false);
          add(goalkeeper);
+         add(goalkeeper1);                
+         goalkeeper1.setEditable(false);
+         for(int i = 0; i<1;i++){
+         goalkeeper1.append(names[i]);
+         goalkeeper.setVisible(true);
+         goalkeeper1.setVisible(true);
          }
          
-         JTextArea defender = new JTextArea("Defenders: ");
-         defender.setEditable(false);
-         defender.append("\n");
-         add(defender);                
-         defender.setEditable(false);
-         for(int i = 1; i<5;i++){
-         defender.append(names[i]+"\t\t"+rate[i]+ "\n");
-         defender.setVisible(true);
+         JLabel defender = new JLabel("<html><h2>Defenders: </h2></html>");
+         JTextArea defender1 = new JTextArea();
+         defender1.setEditable(false);
          add(defender);
+         add(defender1);                
+         defender1.setEditable(false);
+         for(int i = 1; i<5;i++){
+         defender1.append(names[i]+"\n");
+         defender.setVisible(true);
+         defender1.setVisible(true);
          }
          
-         JTextArea midfield = new JTextArea("Midfielders: ");
-         midfield.setEditable(false);
-         midfield.append("\n");
-         add(midfield);                
-         midfield.setEditable(false);
-         for(int i = 6; i<10;i++){
-         midfield.append(names[i]+"\t\t"+rate[i]+ "\n");
-         midfield.setVisible(true);
+         JLabel midfield = new JLabel("<html><h2>Midfielders: </h2></html>");
+         JTextArea midfielder1 = new JTextArea();
+         midfielder1.setEditable(false);
          add(midfield);
+         add(midfielder1);                
+         midfielder1.setEditable(false);
+         for(int i = 5; i<=9;i++){
+         midfielder1.append(names[i]+"\n");
+         midfield.setVisible(true);
+         midfielder1.setVisible(true);
          }
          
-         JTextArea forward = new JTextArea("Forwards: ");
-         forward.setEditable(false);
-         forward.append("\n");
-         add(forward);                
-         forward.setEditable(false);
-         for(int i = 9; i<=11;i++){
-         forward.append(names[i]+"\t\t"+rate[i]+ "\n");
-         forward.setVisible(true);
-         add(forward);
-         }
+         JLabel forwards = new JLabel("<html><h2>Forwards: </h2></html>");
+         JTextArea forwards1 = new JTextArea();
+         forwards1.setEditable(false);
+         add(forwards);
+         add(forwards1);                
+         forwards1.setEditable(false);
+         for(int i = 10; i<12;i++){
+         forwards1.append(names[i]);
+         forwards.setVisible(true);
+         forwards1.setVisible(true);
+         } */
          
          
          
