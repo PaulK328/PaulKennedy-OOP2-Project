@@ -3,13 +3,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class NamePositionScoreGameGenerator extends JFrame {
 	
 	private String teamPlayers; //Used in randomPlayerName();
     private String rating; //Used in randomPlayerName();
-    private int[] rate;
-                              
+    private float[] rate;
+                                  
 public static void main(String [] args){
 		NamePositionScoreGameGenerator jFrame1 = new NamePositionScoreGameGenerator();
 		jFrame1.setVisible(true);
@@ -71,12 +72,12 @@ public static void main(String [] args){
         int random2 = (int) (Math.random()*secondName.length);
          
         String[] names = new String[12]; 
-        rate = new int[12];
-         
+        rate = new float[12];
+                 
          
          for(int i = 0; i <= 11; i++){
          	names[i] = firstName[(int)(Math.random() * firstName.length)] + " " + secondName[(int)(Math.random() * secondName.length)];
-         	rate[i] = (int)(Math.random() * 10); 
+         	rate[i] = (float)((Math.random() * 100) / 10);
          } //End of For Loop
          
          teamPlayers = "<html><H2>Goalkeeper</H2></html>\n" + names[1] + "\n<html><H2>Defenders</H2></html>" + "\n" + names[2] + "\n" + names[3] + "\n" + names[4] + "\n" + names[5] + 
@@ -93,14 +94,14 @@ public static void main(String [] args){
   	
   	// --------------------------------------- //
   	
-  	public void gameStarted(){
+  	/* public void gameStarted(){
   		randomPlayerName();
   		
   		int[] allRatings[] = {rate};
   		for(int count = 0; count < 11; count++){
   			rate[count] = (int)(Math.random() * 10);
   		}
-  	}	
+  	} */	
 	
 	// --------------------------------------- //
 	
@@ -141,7 +142,18 @@ public static void main(String [] args){
            			Object[] optionsagain = {"Continue", "Quit"};
       				int playOn = JOptionPane.showOptionDialog(null, rating, "Game", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, optionsagain, optionsagain[0]);
       					if (playOn == JOptionPane.YES_OPTION){
+      						int savePlayer = JOptionPane.showConfirmDialog(null, "Would You Like To Save Your Players & Ratings?", "Save",
+      							JOptionPane.YES_NO_OPTION);
+      							
+      						if(savePlayer == JOptionPane.YES_OPTION){
+      							System.exit(0);
+      						}
       						
+      						else if(savePlayer == JOptionPane.NO_OPTION){
+      							String thankYou = "Thank You For Playing The Random Name, Position & Score Game.\n\nPlease Play Again Soon!";
+      							JOptionPane.showMessageDialog(null, thankYou);
+      							System.exit(0);
+      						}
       					}
       		
       					else if (playOn == JOptionPane.NO_OPTION){

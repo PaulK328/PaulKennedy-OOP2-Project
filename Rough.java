@@ -106,3 +106,60 @@
          
          for(int i = 0 ; i < 11; i++){
          	names[i] = firstName[(int)(Math.random()*firstName.length)]; */
+         	
+         	
+         	
+         	
+         	
+         	
+         	
+         	
+         	
+  import java.util.*;
+import java.io.*;
+
+public class SaveFriends{
+	
+	public static void main(String args[])throws FileNotFoundException,IOException{
+		
+		//LinkedList <Person> myFriends;
+		//myFriends = new LinkedList<Person>();
+		
+		
+		Person f1 = new Person("kerry",21,'f');
+		Person f2 = new Person("Ann",25,'f');
+		myFriends.add(f1);
+		myFriends.add(f2);
+		
+		File friendsFile = new File("Information.txt");
+		FileOutputStream fos = new FileOutputStream(friendsFile);
+		
+		ObjectOutputStream os = new ObjectOutputStream(fos);
+		os.writeObject(myFriends);
+		os.close();
+	}
+}
+
+
+
+
+   try{
+      byte bWrite [] = {teamPlayers, ratings};
+      OutputStream os = new FileOutputStream("test.txt");
+      for(int x=0; x < bWrite.length ; x++){
+         os.write( bWrite[x] ); // writes the bytes
+      }
+      os.close();
+     
+      InputStream is = new FileInputStream("test.txt");
+      int size = is.available();
+
+      for(int i=0; i< size; i++){
+         System.out.print((char)is.read() + "  ");
+      }
+      is.close();
+   }catch(IOException e){
+      System.out.print("Exception");
+   }	
+   }
+}
